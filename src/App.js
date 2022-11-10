@@ -1,6 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import bakeryData from "./assets/bakery-data.json";
+import BakeryItem from "./components/BakeryItem";
 
 /* ####### DO NOT TOUCH -- this makes the image URLs work ####### */
 bakeryData.forEach((item) => {
@@ -11,18 +12,27 @@ bakeryData.forEach((item) => {
 function App() {
   // TODO: use useState to create a state variable to hold the state of the cart
   /* add your cart state code here */
+  const [amount, setAmount] = useState(0);
+  const [entry, setEntry] = useState({});
 
   return (
     <div className="App">
-      <h1>My Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
+      <h1>Ke' Bakery</h1> {/* TODO: personalize your bakery (if you want) */}
 
+      <div style={{display: "flex"}}>
+      <div className="itemPlace">
       {bakeryData.map((item, index) => ( // TODO: map bakeryData to BakeryItem components
-        <p>Bakery Item {index}</p> // replace with BakeryItem component
+          <BakeryItem item={item} amount={amount} setAmount={setAmount} entry={entry} setEntry={setEntry}></BakeryItem>
       ))}
-
-      <div>
+      </div>
+      <div className="cart">
         <h2>Cart</h2>
-        {/* TODO: render a list of items in the cart */}
+        {Object.keys(entry).map((key, index) => ( 
+          <p key={index}>{entry[key]}x {key}</p>
+        ))} 
+        <p className="total">Total: ${amount}</p>
+        <button>Check Out</button>
+      </div>
       </div>
     </div>
   );

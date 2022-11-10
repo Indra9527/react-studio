@@ -5,5 +5,45 @@
 }
 
 .BakeryItem {
-  
+    position: relative;
+  border: 1px solid orange;
+  background-color: lightblue;
+  text-align: center;
+  width: 20rem;
+  height: 25rem;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.name {
+    font-size: 25px;
+}
+
+.price {
+    font-size: 18px;
+}
+
+.itemPlace {
+    position: relative;
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 22rem);
+    grid-row-gap: 40px;
+    grid-column-gap: 40px;
+}
+
+.btn {
+    text-align: center;
+    position: absolute; 
+    bottom: 30px;
+    right: 30px;
+}
+
+.total {
+    text-align: right;
+}
+
+.cart {
+    background-color: lightsalmon;
+    padding: 5rem;
+    width: 15%;
 }
